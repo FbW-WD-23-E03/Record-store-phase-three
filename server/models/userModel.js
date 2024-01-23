@@ -7,18 +7,15 @@ const userSchema = new Schema({
   email: { type: String, unique: true, required: true },
   password: { type: String, required: true },
 
-  //! You need to add a comfirm password filed in the form on the frontend to be able to use confirmPassword field
-  /* 
-    passwordConfirm: {
-      type: String,
-      // required: true,
-      validate: {
-        validator: function (field) {
-          return field === this.password;
-        },
+  passwordConfirm: {
+    type: String,
+    // required: true,
+    validate: {
+      validator: function (field) {
+        return field === this.password;
       },
-    }, 
-  */
+    },
+  },
 
   avatar: { type: String },
 

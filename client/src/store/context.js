@@ -4,7 +4,6 @@ import getAllRecords from "../apiCalls/recordsApiCalls";
 import { usersInitialState, usersReducer } from "./reducers/usersReducer";
 import { cartsInitialState, cartsReducer } from "./reducers/cartReducer";
 import { getCartData } from "../apiCalls/cartsApiCalls";
-import { getMyData } from "../apiCalls/usersApiCalls";
 
 export const DataContext = createContext();
 
@@ -28,7 +27,6 @@ const ContextProvider = ({ children }) => {
 
   useEffect(() => {
     getAllRecords(dispatchRecords);
-    getMyData(dispatchUsers);
   }, []);
 
   useEffect(() => {

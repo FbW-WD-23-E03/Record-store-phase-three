@@ -2,7 +2,6 @@ import createError from "http-errors";
 import jwt from "jsonwebtoken";
 
 import User from "../models/userModel.js";
-import Cart from "../models/cartModel.js";
 
 //! Helpers
 
@@ -37,18 +36,11 @@ const createSendToken = (res, status, user) => {
   });
 };
 
-const createCart = async (user) => {
-  const newCart = await Cart.create({});
-  user.cartId = newCart._id;
-  await user.save();
-};
-
 //! Controllers
 
 export const signup = async (req, res, next) => {
   try {
     const user = await User.create(req.body);
-    await createCart(user);
     createSendToken(res, 201, user);
   } catch (error) {
     next(error);
@@ -104,22 +96,6 @@ export const protect = async (req, res, next) => {
     req.isAuthenticated = true;
 
     next();
-  } catch (error) {
-    next(error);
-  }
-};
-
-export const getMe = (req, res, next) => {
-  try {
-    const { user, isAuthenticated, cookies } = req;
-    // user.password = undefined;
-
-    res.status(200).json({
-      sucess: true,
-      user,
-      isAuthenticated,
-      // jwtToken: cookies["jwtToken"],
-    });
   } catch (error) {
     next(error);
   }

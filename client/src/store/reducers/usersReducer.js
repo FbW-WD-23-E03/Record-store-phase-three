@@ -7,7 +7,7 @@ export const usersReducer = (state, action) => {
   switch (action.type) {
     case "LOGIN_SUCCESS":
       return {
-        user: action.payload.user,
+        user: action.payload.data,
         isUserLoggedIn: true,
       };
 

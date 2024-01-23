@@ -73,9 +73,7 @@ export const updateUserById = async (req, res, next) => {
 
     if (req.file) {
       user.avatar = req.file.filename;
-
-      //! Uncomment this if you are using the confirmPassword field
-      // user.passwordConfirm = req.user.password;
+      user.passwordConfirm = req.user.password;
     }
 
     await user.save();

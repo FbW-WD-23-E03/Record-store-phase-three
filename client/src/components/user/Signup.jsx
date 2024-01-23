@@ -60,15 +60,15 @@ const Signup = () => {
   ];
 
   return (
-    <div className="layout">
+    <div className='layout'>
       <Form
         submitHandler={submitHandler}
         inputs={inputs}
-        buttonText="Sign Up"
-        heading="Hello there"
+        buttonText='Sign Up'
+        heading='Hello there'
       />
-      <div className="right">
-        <img src={gif01} alt="gif01" />
+      <div className='right'>
+        <img src={gif01} alt='gif01' />
       </div>
     </div>
   );

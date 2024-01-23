@@ -7,12 +7,7 @@ import {
   updateItemFieldById,
 } from "../controllers/cartController.js";
 
-import { protect } from "../controllers/authController.js";
-
 const router = express.Router();
-
-//TODO: Getting unauthorized error for cart
-router.use(protect);
 
 router
   .route("/:id")
